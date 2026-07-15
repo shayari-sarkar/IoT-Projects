@@ -11,10 +11,6 @@ Smart Home QE007 Starter Guide
 #include <Adafruit_NeoPixel.h>
 
 
-
-
-
-
 const char* ssid = "ESP32_ACCESS_POINT";
 const char* password = "pass123456";
 const int WS2812_PIN = 16;
@@ -296,7 +292,7 @@ void setup() {
 }
 
 
-// COM port suddenly disconnects? - version esptool v5.3.0 - use COM Ports 4, 6, or 7
+// use COM Ports 4, 6, or 7
 void loop()
 {
   delay(5000);
