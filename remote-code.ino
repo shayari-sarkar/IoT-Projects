@@ -1,5 +1,4 @@
-/*  
-  Sources:
+/*  Sources:
 Based on code from https://RandomNerdTutorials.com/esp32-web-server-beginners-guide/ 
 Smart Home QE007 Starter Guide
 */
@@ -19,11 +18,6 @@ const int WS2812_NUM = 9;
 
 Adafruit_NeoPixel pixels(WS2812_NUM, WS2812_PIN, NEO_GRB + NEO_KHZ800);
 String rgbState = "off";
-
-
-
-
-
 
 // Assign output variables to GPIO pins
 const int light = 5;
@@ -66,12 +60,7 @@ void ws2812ShowColor(uint32_t color)
   pixels.show();
 }
 
-
-
-
 WebServer server(80);
-
-
 
 
 void handleRoot() {
@@ -91,11 +80,8 @@ void handleRoot() {
     html += "<p><a href=\"/light/off\"><button class=\"button button2\">LED OFF</button></a></p>";
   }
 
-
-
-
  
-   // Display window controls - make window and door sliders?
+   // Display window controls 
   html += "<p>Window - State " + windowState + "</p>";
   if (windowState == "off") {
     html += "<p><a href=\"/window/open\"><button class=\"button\">WINDOW OPEN</button></a></p>";
@@ -104,7 +90,7 @@ void handleRoot() {
   }
 
 
-  // Display door controls - make window and door sliders? - ISSUE?
+  // Display door controls
   html += "<p>Door - State " + doorState + "</p>";
   if (doorState == "off") {
     html += "<p><a href=\"/door/open\"><button class=\"button\">DOOR OPEN</button></a></p>";
@@ -132,8 +118,6 @@ void handleRoot() {
   }
 
 
-
-
   html += "</body></html>";
   server.send(200, "text/html", html);
 }
@@ -150,8 +134,6 @@ void lightOn() {
   digitalWrite(light, HIGH);
   handleRoot();
 }
-
-
 
 
 // Function to handle turning light off
@@ -188,7 +170,6 @@ void rgbOn() {
 }
 
 
-// happy pride??
 void rainbow()
 {
   rgbState = "on";
@@ -226,10 +207,10 @@ void windowClose() {
 }
 
 
-// Function to handle opening window - original code
-void doorOpen() {
-  doorState = "on";
-  doorServo.write(DoorangleOpen);
+// Function to handle opening window
+void windowOpen() {
+  windowState = "on";
+  windowServo.write(WinangleOpen);
   handleRoot();
 }
 
@@ -245,14 +226,11 @@ void doorClose() {
 void setup() {
   Serial.begin(115200);
 
-
+  
   // Initialize the output variables as outputs
   pinMode(light, OUTPUT);
   windowServo.attach(windowPin);
   doorServo.attach(doorPin);
-
-
-
 
   // Set outputs to LOW
   digitalWrite(light, LOW);
@@ -263,11 +241,9 @@ void setup() {
   delay(5000);
   IPAddress IP = WiFi.softAPIP();
 
-
   Serial.println(IP);
 
 
- 
   server.on("/", handleRoot);
   server.on("/light/on", lightOn);
   server.on("/light/off", lightOff);
@@ -282,10 +258,6 @@ void setup() {
   server.on("/rgb/rainbow", rainbow);
 
 
-
-
-
-
   server.begin();
 
 
@@ -298,16 +270,6 @@ void loop()
   delay(5000);
   IPAddress IP = WiFi.softAPIP();
   Serial.println(IP);
-
-
   server.handleClient();
-
-
-
-
 }
-
-
-
-
 
