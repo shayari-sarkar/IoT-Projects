@@ -6,9 +6,9 @@ This project is a working ESP32 Server which allows someone to remotely control 
 # Technical Components
 Focused on server development and wrote C++/Arduino code to process inputs
 
-**Microcontroller: ** ESP32 (Dev Module)
-**Key Hardware: ** Water sensor, PIR motion sensors, Servos, Ws2812/LED
-**Software: ** Arduino IDE with ESP32 Board Manager 
+**Microcontroller:** ESP32 (Dev Module)
+**Key Hardware:** Water sensor, PIR motion sensors, Servos, Ws2812/LED
+**Software:** Arduino IDE with ESP32 Board Manager 
 
 # Next Steps
 1. Making the server run without WiFi and test if model house can be controlled from considerable distance
