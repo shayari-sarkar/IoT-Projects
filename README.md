@@ -1,6 +1,6 @@
 # Remote IoT House Control
 This project is a working ESP32 Server which allows someone to remotely control an IoT model house 
-—> **Real-Life Application: ** Demonstrates a system for monitoring/controlling localized embedded systems remotely in a cheap way
+**Real-Life Application:** Demonstrates a system for monitoring/controlling localized embedded systems remotely in a cheap way
 
 # Technical Components
 Focused on server development and wrote C++/Arduino code to process inputs
